@@ -20,7 +20,7 @@ void main(List<String> arguments) {
   test("input '//--\n1--2--3--4--5\n6\n7\n8' output 36", ()=> expect(add('//--\n1--2--3--4--5\n6\n7\n8'), 36));
   test("input '//****\n1****2****3\n6\n7\n8' output 27", ()=> expect(add('//****\n1****2****3\n6\n7\n8'), 27));
   test("input '//*\n' output 0", ()=> expect(add('//*\n'), 0));
-  test("input '//*\n-11' output exception negative not allowed", ()=> expect(add('//*\n-11'), "negative not allowed -11"));
+  test("input '//*\n-11' output exception negative not allowed", ()=> expect(()=>add('//*\n-11'), throwsA(predicate((e) => e.toString().contains("negative not allowed -11")))));
 }
 
 int add(String numbers){
@@ -34,6 +34,10 @@ int add(String numbers){
   final numberList = numbers.split(delimiter);
   int sum = 0;
   for(String i in numberList){
+    int number = int.tryParse(i)??0;
+    if(number < 0){
+      throw Exception("negative not allowed $number");
+    }
     sum += int.tryParse(i)??0;
   }
   return sum;
