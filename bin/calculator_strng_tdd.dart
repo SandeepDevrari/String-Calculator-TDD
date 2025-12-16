@@ -24,7 +24,7 @@ int add(String numbers){
     numbers = numbers.substring(4);
   }
   numbers = numbers.replaceAll("\n", delimiter);
-  final numberList = numbers.split(",");
+  final numberList = numbers.split(delimiter);
   int sum = 0;
   for(String i in numberList){
     sum += int.tryParse(i)??0;
