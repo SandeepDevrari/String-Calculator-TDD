@@ -31,7 +31,13 @@ int add(String numbers){
   String delimiter = ',';
   if(numbers.startsWith("//")){
     int delimiterEndIndex = numbers.indexOf("\n");
-    delimiter = numbers.substring(2,delimiterEndIndex);
+    final delimiters = numbers.substring(2,delimiterEndIndex);
+    if(delimiters.startsWith("[")) {
+      int delimiterBoxEndIndex = delimiters.indexOf("]");
+      delimiter = delimiters.substring(1, delimiterBoxEndIndex);
+    }else{
+      delimiter = delimiters;
+    }
     numbers = numbers.substring(delimiterEndIndex+1);
   }
   numbers = numbers.replaceAll("\n", delimiter);
