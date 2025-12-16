@@ -19,7 +19,7 @@ void main(List<String> arguments) {
   test("input '//-\n1-2-3-4-5\n6\n7\n8' output 36", ()=> expect(add('//-\n1-2-3-4-5\n6\n7\n8'), 36));
   test("delimiter can be of any length", ()=> expect(add('//[***]\n1***2***3'), 6));
   test("delimiter can be of any length input '//[--]\n1--2--3--4--5\n6\n7\n8' output 36", ()=> expect(add('//[--]\n1--2--3--4--5\n6\n7\n8'), 36));
-  // test("input '//****\n1****2****3\n6\n7\n8' output 27", ()=> expect(add('//****\n1****2****3\n6\n7\n8'), 27));
+  test("input '//[****]\n1****2****3\n6\n7\n8' output 27", ()=> expect(add('//[****]\n1****2****3\n6\n7\n8'), 27));
   // test("input '//*\n' output 0", ()=> expect(add('//*\n'), 0));
   // test("input '//*\n-11' output exception negative not allowed", ()=> expect(()=>add('//*\n-11'), throwsA(predicate((e) => e.toString().contains("negative not allowed -11")))));
   // test("input '//*\n-1*-2*-3' output exception negative not allowed", ()=> expect(()=>add('//*\n-1*-2*-3'), throwsA(predicate((e) => e.toString().contains("negative not allowed -1,-2,-3")))));
