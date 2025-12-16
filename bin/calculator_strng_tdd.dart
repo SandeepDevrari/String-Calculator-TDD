@@ -30,20 +30,35 @@ void main(List<String> arguments) {
 
 int add(String numbers){
   if(numbers.isEmpty) return 0;
-  String delimiter = ',';
+  List<String> multiDelimiterList = [','];
   if(numbers.startsWith("//")){
     int delimiterEndIndex = numbers.indexOf("\n");
     final delimiters = numbers.substring(2,delimiterEndIndex);
     if(delimiters.startsWith("[")) {
-      int delimiterBoxEndIndex = delimiters.indexOf("]");
-      delimiter = delimiters.substring(1, delimiterBoxEndIndex);
+      int delimiterBoxEndIndex = delimiters.lastIndexOf("]");
+      final multiDelimiters = delimiters.substring(1, delimiterBoxEndIndex);
+      multiDelimiterList.clear();
+      multiDelimiterList.addAll(multiDelimiters.split("]["));
     }else{
-      delimiter = delimiters;
+      multiDelimiterList.clear();
+      multiDelimiterList.add(delimiters);
     }
     numbers = numbers.substring(delimiterEndIndex+1);
   }
-  numbers = numbers.replaceAll("\n", delimiter);
-  final numberList = numbers.split(delimiter);
+  numbers = numbers.replaceAll("\n", multiDelimiterList.first);
+  var numberList = <String>[];
+  for(String delimiter in multiDelimiterList){
+    if(numberList.isNotEmpty){
+      final tempList = <String>[];
+      for(String i in numberList){
+        tempList.addAll(i.split(delimiter));
+      }
+      numberList = tempList;
+    }else{
+      numberList = numbers.split(delimiter);
+    }
+  }
+  // numberList = numbers.split(delimiter);
   int sum = 0;
   bool hasNegative = false;
   String negativeNumbers = "";
