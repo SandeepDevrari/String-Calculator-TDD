@@ -24,7 +24,7 @@ void main(List<String> arguments) {
   test("input '//*\n-11' output exception negative not allowed", ()=> expect(()=>add('//*\n-11'), throwsA(predicate((e) => e.toString().contains("negative not allowed -11")))));
   test("input '//*\n-1*-2*-3' output exception negative not allowed", ()=> expect(()=>add('//*\n-1*-2*-3'), throwsA(predicate((e) => e.toString().contains("negative not allowed -1,-2,-3")))));
   test("input '//,\n1,2,3,4,5,6,-1,-2,-3,-5,-6,7,8,-7,9,-8,-9,10,-10' output exception negative not allowed", ()=> expect(()=>add('//,\n1,2,3,4,5,6,-1,-2,-3,-5,-6,7,8,-7,9,-8,-9,10,-10'), throwsA(predicate((e) => e.toString().contains("negative not allowed -1,-2,-3,-5,-6,-7,-8,-9,-10")))));
-  test("ignores numbers greater than 1000 input '//,\n1,2,3,4,100,1000,1001,5,999' output 2114", ()=> expect(add('//,\n1,2,3,4,100,1000,1001,5,999'), 2114));
+  test("ignores numbers greater than 1000, input '//,\n1,2,3,4,100,1000,1001,5,999' output 2114", ()=> expect(add('//,\n1,2,3,4,100,1000,1001,5,999'), 2114));
 }
 
 int add(String numbers){
