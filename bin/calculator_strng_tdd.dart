@@ -23,6 +23,7 @@ void main(List<String> arguments) {
 }
 
 int add(String numbers){
+  if(numbers.isEmpty) return 0;
   String delimiter = ',';
   if(numbers.startsWith("//")){
     delimiter = numbers.substring(2,3);
