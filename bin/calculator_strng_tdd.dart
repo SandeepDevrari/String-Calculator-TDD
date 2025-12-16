@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 void main(List<String> arguments) {
   test("input '' output 0", ()=> expect(add(''), 0));
   test("input '1' output 1", ()=> expect(add('1'), 1));
+  test("input '2' output 2", ()=> expect(add('2'), 2));
 }
 
 int add(String numbers){
