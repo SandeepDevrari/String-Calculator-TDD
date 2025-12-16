@@ -20,6 +20,7 @@ void main(List<String> arguments) {
   test("input '//--\n1--2--3--4--5\n6\n7\n8' output 36", ()=> expect(add('//--\n1--2--3--4--5\n6\n7\n8'), 36));
   test("input '//****\n1****2****3\n6\n7\n8' output 27", ()=> expect(add('//****\n1****2****3\n6\n7\n8'), 27));
   test("input '//*\n' output 0", ()=> expect(add('//*\n'), 0));
+  test("input '//*\n-11' output exception negative not allowed", ()=> expect(add('//*\n-11'), "negative not allowed -11"));
 }
 
 int add(String numbers){
