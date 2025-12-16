@@ -10,6 +10,7 @@ void main(List<String> arguments) {
   test("input '100000' output 100000", ()=> expect(add('100000'), 100000));
   test("input '2,3' output 5", ()=> expect(add('2,3'), 5));
   test("input '2,3,4,5' output 14", ()=> expect(add('2,3,4,5'), 14));
+  test("input '12,13,14,15' output 54", ()=> expect(add('12,13,14,15'), 54));
 }
 
 int add(String numbers){
