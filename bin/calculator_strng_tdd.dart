@@ -6,5 +6,8 @@ void main(List<String> arguments) {
 }
 
 int add(String numbers){
+  if(numbers.isNotEmpty){
+    return int.tryParse(numbers)??0;
+  }
   return 0;
 }
