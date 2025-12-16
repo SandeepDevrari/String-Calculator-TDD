@@ -34,12 +34,19 @@ int add(String numbers){
   numbers = numbers.replaceAll("\n", delimiter);
   final numberList = numbers.split(delimiter);
   int sum = 0;
+  bool hasNegative = false;
+  String negativeNumbers = "";
   for(String i in numberList){
     int number = int.tryParse(i)??0;
     if(number < 0){
-      throw Exception("negative not allowed $number");
+      hasNegative = true;
+      negativeNumbers += i + ",";
+      continue;
     }
     sum += int.tryParse(i)??0;
+  }
+  if(hasNegative){
+    throw Exception("negative not allowed $negativeNumbers");
   }
   return sum;
   // return int.tryParse(numbers)??0;
