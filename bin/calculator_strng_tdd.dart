@@ -7,7 +7,7 @@ void main(List<String> arguments) {
   test("input '3' output 3", ()=> expect(add('3'), 3));
   test("input '10' output 10", ()=> expect(add('10'), 10));
   test("input '100' output 100", ()=> expect(add('100'), 100));
-  test("input '100000' output 100000", ()=> expect(add('100000'), 100000));
+  test("input '100000' output 0", ()=> expect(add('100000'), 0));
   test("input '2,3' output 5", ()=> expect(add('2,3'), 5));
   test("input '2,3,4,5' output 14", ()=> expect(add('2,3,4,5'), 14));
   test("input '12,13,14,15' output 54", ()=> expect(add('12,13,14,15'), 54));
