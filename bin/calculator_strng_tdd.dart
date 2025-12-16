@@ -52,8 +52,9 @@ int add(String numbers){
       hasNegative = true;
       negativeNumbers += i + ",";
       continue;
+    }else if(number <= 1000) {
+      sum += number;
     }
-    sum += int.tryParse(i)??0;
   }
   if(hasNegative){
     throw Exception("negative not allowed $negativeNumbers");
