@@ -12,5 +12,11 @@ void main(List<String> arguments) {
 }
 
 int add(String numbers){
-  return int.tryParse(numbers)??0;
+  final numberList = numbers.split(",");
+  int sum = 0;
+  for(String i in numberList){
+    sum += int.tryParse(i)??0;
+  }
+  return sum;
+  // return int.tryParse(numbers)??0;
 }
