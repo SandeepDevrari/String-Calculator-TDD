@@ -14,6 +14,7 @@ void main(List<String> arguments) {
   test("input '1\n2,3' output 6", ()=> expect(add('1\n2,3'), 6));
   test("input '1\n2,3\n4\n5\n6,7\n10' output 38", ()=> expect(add('1\n2,3\n4\n5\n6,7\n10'), 38));
   test("input '1\n\n2,3\n\n\n\n\n4\n5\n6,,,,,,7\n\n\n\n10,,,,' output 38", ()=> expect(add('1\n\n2,3\n\n\n\n\n4\n5\n6,,,,,,7\n\n\n\n10,,,,'), 38));
+  test("input '//;\n1;2' output 3", ()=> expect(add('//;\n1;2'), 3));
 }
 
 int add(String numbers){
