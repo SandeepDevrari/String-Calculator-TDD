@@ -7,6 +7,7 @@ void main(List<String> arguments) {
   test("input '3' output 3", ()=> expect(add('3'), 3));
   test("input '10' output 10", ()=> expect(add('10'), 10));
   test("input '100' output 100", ()=> expect(add('100'), 100));
+  test("input '100000' output 100000", ()=> expect(add('100000'), 100000));
 }
 
 int add(String numbers){
