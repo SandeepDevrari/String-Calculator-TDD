@@ -18,7 +18,12 @@ void main(List<String> arguments) {
 }
 
 int add(String numbers){
-  numbers = numbers.replaceAll("\n", ",");
+  String delimiter = ',';
+  if(numbers.startsWith("//")){
+    delimiter = numbers.substring(2,3);
+    numbers = numbers.substring(4);
+  }
+  numbers = numbers.replaceAll("\n", delimiter);
   final numberList = numbers.split(",");
   int sum = 0;
   for(String i in numberList){
