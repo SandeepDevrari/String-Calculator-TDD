@@ -15,6 +15,7 @@ void main(List<String> arguments) {
 }
 
 int add(String numbers){
+  numbers = numbers.replaceAll("\n", ",");
   final numberList = numbers.split(",");
   int sum = 0;
   for(String i in numberList){
